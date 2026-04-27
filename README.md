@@ -19,7 +19,8 @@ Notes:
 I would assume that this is the continuation of the last assignment where it requires to match the VAT invoices with deliveries. 
 
 ## Method
-Since the Test Description does not clearly explain what tier mean and the context of tier is missing, this is how I define the tier of involving LLM into matching the deliveries with invoices 
+Since the Test Description does not clearly explain what tier mean and the context of tier is missing, this is how I define the tier of involving LLM into matching the deliveries with invoices
+
 Clarifying the tier 
 - Tier 1: Programmatic Logic
   - Using code/script to run the logic without LLM involve
@@ -31,14 +32,40 @@ Clarifying the tier
   - LLM inference from AI provider/on-prem hardware
   - Full token processing
 
-Addressing the previous issue 
-1. Text similarity is dangerous. That is why we use other supporting metadata to ensure the location is correct:
-- Location ID (based on your json data)
-  - Location Id is the index to lookup the addresss data in the internal database
-  - Coordinate to pinpoint exact location and help with navigation
-- Using external services such as what3words to pinpoint the exact location on map
-However, based on the current json data to find the matching VAT invoices with deliveries, deliveries has no invoice id to look up the vat invoice id as index. We will have to relies on the Truck plates, and the date range between the deliveries and the VAT invoices. Location name is not valid to match and cause the fuzzy matching name.
+## Approach
 
-2. Updating outdate API/Geography Edge Case to prevent the full LLM response hallucination by providing a standard RAG with version control. An external official documents with timestamp of valid address and new update to the administrative boundaries is embedd to the vector database and ranked by user request. The latest update  LLM can use the latest update of address data and provide the correct location name.
+Defining the orchestration
+- Input: `None`
+- Output: `None`
+- Logic: 
+  - Going through Tier 1 -> Tier 3, then send the result for human review
 
-3. Static Architecture: Dynamic address request is not cached so the LLM will request full token usage the next time it was prompted. This is where the pattern for the self healing feedback loop is presented.
+Programmatic Logic Layer (Tier 1)
+- Input: `raw_address: str`
+- Output: `AddressResolved | None`
+- Logic: Using address pattern recognize by LLM
+
+LLM response cache Layer (Tier 2)
+- Input: `raw_address: str`
+- Output: `AddressResolved | None`
+- Logic: using Vector search and Prefix Caching from LLM resquest
+
+RAG service Layer (Tier 2)
+- Input: `raw_address: str`
+- Output: `AddressResolved | None`
+- Logic: Vector search with reranking context of human review and updated  address information
+
+LLM Service Layer (Tier 3)
+- Input: `raw_address`
+- Output: `(AddressResolved, logprob)`
+- Logic: Prompt engineering + LLM call -> string tuple
+
+Validator:
+- Input: `AddressResolution`, `GroundTruth`
+- Output: `ValidationResult` as boolean
+- Logic: Check Coordinate, and save the result to the Human review Queue
+
+Human Review Queue:
+- Input: `ValidationResult`, `AddressResolution`, `GroundTruth`
+- Output: `CorrectedResult`
+- Logic: Let human compare the validation result with Address resolved by AI and correct the incorrect address.
