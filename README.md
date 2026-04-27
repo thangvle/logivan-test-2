@@ -37,9 +37,8 @@ Addressing the previous issue
   - Location Id is the index to lookup the addresss data in the internal database
   - Coordinate to pinpoint exact location and help with navigation
 - Using external services such as what3words to pinpoint the exact location on map
-However, based on the current json data to find the matching VAT invoices with deliveries, deliveries has no invoice id to look up the vat invoice id as index. We will have to relies on the Truck plates, and the date range between the deliveries and the VAT invoices.
+However, based on the current json data to find the matching VAT invoices with deliveries, deliveries has no invoice id to look up the vat invoice id as index. We will have to relies on the Truck plates, and the date range between the deliveries and the VAT invoices. Location name is not valid to match and cause the fuzzy matching name.
 
-2. Updating outdate API/Geography Edge Case to prevent the full LLM response hallucination by providing a
+2. Updating outdate API/Geography Edge Case to prevent the full LLM response hallucination by providing a standard RAG with version control. An external official documents with timestamp of valid address and new update to the administrative boundaries is embedd to the vector database and ranked by user request. The latest update  LLM can use the latest update of address data and provide the correct location name.
 
-Building the self-healing feedback loop:
-- Using the orchestrator pattern to decide which tier the LLM was involved
+3. Static Architecture: Dynamic address request is not cached so the LLM will request full token usage the next time it was prompted. This is where the pattern for the self healing feedback loop is presented.
