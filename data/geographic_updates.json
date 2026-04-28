@@ -1,0 +1,45 @@
+{
+  "version": "1.0",
+  "last_updated": "2026-04-28",
+  "updates": [
+    {
+      "id": "VN-HCM-2024-001",
+      "effective_date": "2024-01-15",
+      "province": "Hồ Chí Minh",
+      "type": "WARD_MERGE",
+      "description": "Phường Tân Định merged into Phường Đa Kao, Quận 1",
+      "old_location": {
+        "ward": "Tân Định",
+        "district": "Quận 1"
+      },
+      "new_location": {
+        "ward": "Đa Kao",
+        "district": "Quận 1"
+      }
+    },
+    {
+      "id": "VN-HCM-2025-001",
+      "effective_date": "2025-06-01",
+      "province": "Hồ Chí Minh",
+      "type": "DISTRICT_RENAME",
+      "description": "Quận 2, Quận 9, Thủ Đức merged into Thành phố Thủ Đức",
+      "old_location": {
+        "district": "Quận 2"
+      },
+      "new_location": {
+        "district": "Thành phố Thủ Đức"
+      }
+    },
+    {
+      "id": "VN-DL-2024-001",
+      "effective_date": "2024-03-20",
+      "province": "Lâm Đồng",
+      "type": "WARD_UPDATE",
+      "description": "Phường 8 administrative boundary updated in Đà Lạt",
+      "location": {
+        "ward": "Phường 8",
+        "district": "Đà Lạt"
+      }
+    }
+  ]
+}

@@ -1,0 +1,188 @@
+{
+  "version": "1.0",
+  "last_updated": "2026-04-28",
+  "description": "Vietnamese encoding corruption patterns for address normalization",
+  "patterns": [
+    {
+      "from": "Ph°Ýng",
+      "to": "Phường",
+      "priority": 1,
+      "description": "Ward prefix"
+    },
+    {
+      "from": "°Ýng",
+      "to": "Đường",
+      "priority": 2,
+      "description": "Street prefix"
+    },
+    {
+      "from": "Thành phÑ",
+      "to": "Thành phố",
+      "priority": 1,
+      "description": "City prefix"
+    },
+    {
+      "from": "Thành phố HÓ",
+      "to": "Thành phố Hồ",
+      "priority": 1,
+      "description": "Ho Chi Minh City"
+    },
+    {
+      "from": "Thành phố à L¡t",
+      "to": "Thành phố Đà Lạt",
+      "priority": 1,
+      "description": "Da Lat City"
+    },
+    {
+      "from": "Lâm Óng",
+      "to": "Lâm Đồng",
+      "priority": 1,
+      "description": "Lam Dong Province"
+    },
+    {
+      "from": "ViÇt Nam",
+      "to": "Việt Nam",
+      "priority": 1,
+      "description": "Vietnam"
+    },
+    {
+      "from": "HÓ Chí Minh",
+      "to": "Hồ Chí Minh",
+      "priority": 1,
+      "description": "Ho Chi Minh"
+    },
+    {
+      "from": "°Ýng Tr§n",
+      "to": "Đường Trần",
+      "priority": 1,
+      "description": "Tran Street"
+    },
+    {
+      "from": "Tr§n Khánh",
+      "to": "Trần Khánh",
+      "priority": 1,
+      "description": "Tran Khanh"
+    },
+    {
+      "from": "D°, Ph",
+      "to": "Dư, Ph",
+      "priority": 1,
+      "description": "Du, Ph"
+    },
+    {
+      "from": "éc Hòa",
+      "to": "Đức Hòa",
+      "priority": 1,
+      "description": "Duc Hoa"
+    },
+    {
+      "from": "QuËn 1",
+      "to": "Quận 1"
+    },
+    {
+      "from": "QuËn 1",
+      "to": "Quận 1"
+    },
+    {
+      "from": "QuËn 1",
+      "to": "Quận 1"
+    },
+    {
+      "from": "QuËn 1",
+      "to": "Quận 1"
+    },
+    {
+      "from": "QuËn 1",
+      "to": "Quận 1"
+    },
+    {
+      "from": "QuËn 1",
+      "to": "Quận 1"
+    },
+    {
+      "from": "QuËn 1",
+      "to": "Quận 1"
+    },
+    {
+      "from": "QuËn 1",
+      "to": "Quận 1"
+    },
+    {
+      "from": "QuËn 1",
+      "to": "Quận 1"
+    },
+    {
+      "from": "QuËn 1",
+      "to": "Quận 1"
+    },
+    {
+      "from": "QuËn 1",
+      "to": "Quận 1"
+    },
+    {
+      "from": "QuËn 1",
+      "to": "Quận 1"
+    },
+    {
+      "from": "QuËn 1",
+      "to": "Quận 1"
+    }
+  ],
+  "character_mappings": [
+    {
+      "from": "°",
+      "to": "ư",
+      "priority": 3
+    },
+    {
+      "from": "Ý",
+      "to": "ý",
+      "priority": 3
+    },
+    {
+      "from": "§",
+      "to": "ầ",
+      "priority": 3
+    },
+    {
+      "from": "Ñ",
+      "to": "ố",
+      "priority": 3
+    },
+    {
+      "from": "Ó",
+      "to": "đ",
+      "priority": 3
+    },
+    {
+      "from": "¡",
+      "to": "à",
+      "priority": 3
+    },
+    {
+      "from": "­",
+      "to": "ư",
+      "priority": 3
+    },
+    {
+      "from": "Û",
+      "to": "ư",
+      "priority": 3
+    },
+    {
+      "from": "Ç",
+      "to": "ệ",
+      "priority": 3
+    },
+    {
+      "from": "¿",
+      "to": "ế",
+      "priority": 3
+    },
+    {
+      "from": "))",
+      "to": "ị",
+      "priority": 3
+    }
+  ]
+}
